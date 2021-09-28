@@ -17,4 +17,16 @@ def random_state(width, height):
                 state[i][j] = ALIVE
     return state
 
-print(random_state(2, 2))
+def render(board_state):
+    print("-" * (len(board_state)+2))
+    for x in range(len(board_state)):
+        row = ""
+        for y in range(len(board_state[0])):
+            if board_state[x][y] == DEAD:
+                row += " "
+            else:
+                row += "$"
+        print(f"|{row}|")
+
+
+render(random_state(5, 5))
