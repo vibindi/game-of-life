@@ -18,4 +18,4 @@ If the cell is dead:
 ### Gosper Glider Gun - Game of Life Soup:
 ![til](./giphy.gif)
 
-Done through [tutorial]()
+Done through [tutorial](https://robertheaton.com/2018/07/20/project-2-game-of-life/)
