@@ -1,4 +1,5 @@
 import random
+import time
 
 DEAD = 0
 ALIVE = 1
@@ -18,7 +19,6 @@ def random_state(width, height):
     return state
 
 def render(board_state):
-    print("-" * (len(board_state)+2))
     for x in range(len(board_state)):
         row = ""
         for y in range(len(board_state[0])):
@@ -57,3 +57,23 @@ def next_cell_value(x, y, initial, width, height):
         if live_neighbors <= 1: return DEAD
         elif live_neighbors <= 3: return ALIVE
         else: return DEAD
+
+def run_forever(initial):
+    next_state = initial
+    while True:
+        render(next_state)
+        next_state = next_board_state(next_state)
+        time.sleep(0.5)
+
+def load_board_state(path):
+    state = []
+    with open(path, "r") as file:
+        for l in file.readlines():
+            temp = [int(s[0]) for s in l.split(",")]
+            state.append(temp)
+    return state
+
+if __name__ == "__main__":
+    #state = random_state(50, 100)
+    #render(state)
+    run_forever(load_board_state("example_soups/gosper-glide-gun.txt"))
